@@ -1,2 +1,2 @@
-# projekt PC2T
+# projekt BPC-PC2T
 ## Peter Čeleš
