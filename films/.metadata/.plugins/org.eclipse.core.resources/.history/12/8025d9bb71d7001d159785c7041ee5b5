@@ -1,0 +1,156 @@
+package film_database;
+
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class FilmManager {
+    
+    // List of movies
+    private ArrayList<Movie> movies;
+    
+    // Scanner for user input
+    private Scanner input;
+    
+    // Constructor
+    public FilmManager() {
+        movies = new ArrayList<Movie>();
+        input = new Scanner(System.in);
+    }
+    
+    // Add new movie to the list
+    public void addMovie() {
+    	System.out.print("Type (1 for animated, 2 for action): ");
+        int type = input.nextInt();
+        input.nextLine();
+        System.out.print("Title: ");
+        String title = input.nextLine();
+        System.out.print("Director: ");
+        String director = input.nextLine();
+        System.out.print("Year of release: ");
+        int yearOfRelease = input.nextInt();
+        input.nextLine();
+        
+        
+        if (type == 1) {
+        	System.out.print("Rating (from 1 to 10): ");
+            int rating = input.nextInt();
+            input.nextLine();
+            System.out.print("Recomended age: ");
+            int recomendedAge = input.nextInt();
+        	movies.add(new AnimatedMovie(title, director, yearOfRelease, rating, recomendedAge));
+        	System.out.println("\nMovie added");
+        	
+        } else if (type == 2) {
+        	
+        	ArrayList<String> actors = new ArrayList<String>();
+            while (true) {
+                System.out.print("Actor (or enter to finish): ");
+                String actor = input.nextLine();
+                if (actor.isEmpty()) {
+                    break;
+                }
+                actors.add(actor);
+            }
+            
+            System.out.print("Rating (from 1 to 5): ");
+            int rating = input.nextInt();
+            input.nextLine();
+            movies.add(new ActionMovie(title, director, yearOfRelease, actors, rating));
+            System.out.println("\nMovie added");
+        }
+        else {
+        	System.out.println("Invalid type");
+        }
+    }
+    
+    	public void printMovies() {
+    		System.out.println("---------------------");
+    		for (Movie movie : movies) {
+    			System.out.println("Movie number " + (movies.lastIndexOf(movie)+1) + ":");
+    			System.out.println();
+    	        System.out.println("Title: " + movie.getTitle());
+    	        System.out.println("Director: " + movie.getDirector());
+    	        System.out.println("Year of Release: " + movie.getYearOfRelease());
+    	        if (movie instanceof AnimatedMovie) {
+    	            AnimatedMovie animatedMovie = (AnimatedMovie) movie;
+    	            System.out.println("Rating from (1 to 10): " + animatedMovie.getRating());
+    	            System.out.println("Recommended Age: " + animatedMovie.getRecommendedAge());
+    	        } else if (movie instanceof ActionMovie) {
+    	            ActionMovie actionMovie = (ActionMovie) movie;
+    	            System.out.println("Actors: " + actionMovie.getActors());
+    	            System.out.println("Stars (from 1 to 5): " + actionMovie.getRating());
+    	        }
+    	        System.out.println("---------------------");
+    	    }
+    }
+    
+    // Edit an existing movie
+     public void editMovie() {
+        System.out.print("Enter the title of the movie to edit: ");
+        String title = input.nextLine();
+        for (Movie movie : movies) {
+            if (movie.getTitle().equalsIgnoreCase(title)) {
+                System.out.println("Enter new parameters of the movie:");
+                System.out.print("Title: ");
+                title = input.nextLine();
+                movie.setTitle(title);
+                System.out.print("Director: ");
+                String director = input.nextLine();
+                movie.setDirector(director);
+                System.out.print("Year of release: ");
+                int year = input.nextInt();
+                input.nextLine();
+                movie.setYearOfRelease(year);
+                if (movie instanceof AnimatedMovie) {
+    	            AnimatedMovie animatedMovie = (AnimatedMovie) movie;
+    	            System.out.println("Rating from (1 to 10): ");
+    	            int rating = input.nextInt();
+    	            animatedMovie.setRating(rating);
+    	            System.out.println("Recommended Age: ");
+    	            int age = input.nextInt();
+    	            animatedMovie.setRecommendedAge(age);
+    	        }
+                else if (movie instanceof ActionMovie) {
+    	            ActionMovie actionMovie = (ActionMovie) movie;
+    	            System.out.println("Actors: ");
+    	            ArrayList<String> actors = new ArrayList<String>();
+    	            while (true) {
+    	                System.out.print("Type actor name (or enter to finish): ");
+    	                String actor = input.nextLine();
+    	                if (actor.isEmpty()) {
+    	                    break;
+    	                }
+    	            
+    	                actors.add(actor);
+    	                actionMovie.setActors(actors);
+    	            }
+    	            System.out.println("Stars (from 1 to 5): ");
+    	            int stars = input.nextInt();
+    	            actionMovie.setRating(stars);
+    	            
+    	        }
+        }
+            else {
+            	System.out.println("Movie not found."); 
+            }
+            }
+    }
+    
+    // Remove a movie from the list
+    public void removeMovie() {
+        System.out.print("Enter the title of the movie to remove: ");
+        String title = input.nextLine();
+        for (Movie movie : movies) {
+            if (movie.getTitle().equalsIgnoreCase(title)) {
+                movies.remove(movie);
+                System.out.println("Movie removed.");
+                return;
+            }
+            else {
+            	System.out.println("Movie not found."); 
+            }
+        }
+    }
+     }

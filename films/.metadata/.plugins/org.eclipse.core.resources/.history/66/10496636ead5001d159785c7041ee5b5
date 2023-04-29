@@ -1,0 +1,115 @@
+package film_database;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+public class FilmManager {
+	
+	public static List<AnimatedMovie> amMovies = new ArrayList<>();
+	public static List<ActionMovie> acMovies = new ArrayList<>();
+	
+
+
+
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+
+        // User to interaction with the film database
+        while (true) {
+            System.out.println("What would you like to do?");
+            System.out.println("1. Add a film");
+            System.out.println("2. Remove a film");
+            System.out.println("3. Edit a film");
+            System.out.println("4. Print all films");
+            System.out.println("5. Quit");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                	System.out.println("What type of film would you like to add?");
+                    System.out.println("1. Animated film");
+                    System.out.println("2. Action film");
+
+        	        int type = scanner.nextInt();
+                    scanner.nextLine();
+                    if(type == 1) {
+                    	
+                    	System.out.println("Enter the title of the film:");
+            	        String title = scanner.nextLine();
+
+            	        System.out.println("Enter the director of the film:");
+            	        String director = scanner.nextLine();
+
+            	        System.out.println("Enter the year of release of the film:");
+            	        int year = scanner.nextInt();
+
+            	        System.out.println("Enter the rating of the film (from 1 to 10): ");
+            	        int rating = scanner.nextInt();
+            	        
+            	        System.out.println("Enter the suggested age for the film: ");
+            	        int minimalAge = scanner.nextInt();
+
+            	        scanner.nextLine();
+
+            	        System.out.println("Enter the animators of the film:");
+            	        ArrayList<String> animators = new ArrayList<>();
+            	        
+            	        Movie AnimatedMovie = new AnimatedMovie(title, director, year, animators, rating, minimalAge);
+            	        amMovies.add((film_database.AnimatedMovie) AnimatedMovie);            	         
+            	        System.out.println("Film added.");
+                    	
+                    }
+                    else if (type == 2) {
+                    	
+                    	System.out.println("Enter the title of action movie:");
+            	        String title = scanner.nextLine();
+
+            	        System.out.println("Enter the director of the movie:");
+            	        String director = scanner.nextLine();
+
+            	        System.out.println("Enter the year of release of the movie:");
+            	        int year = scanner.nextInt();
+
+            	        //System.out.println("Enter the rating of the movie (from 1 to 10): ");
+            	        //int rating = scanner.nextInt();
+            	        
+            	        System.out.println("Enter the actors of the movie:");
+            	        String actors = scanner.nextLine();
+            	        
+            	        scanner.nextLine(); 
+            	                    	        
+            	        Movie ActionMovie = new ActionMovie(title, director, year, actors);
+            	        acMovies.add((film_database.ActionMovie) ActionMovie);            	         
+            	        System.out.println("Film added.");
+                    	
+                    	
+                    }
+                    else {
+                    	System.out.println("Invalid choice");
+                    }
+                    
+                    break;
+                //case 2:
+                  //  removeFilm(scanner);
+                    //break;
+                //case 3:
+                  //  editFilm(scanner);
+                    //break;
+                case 4:
+                    Movie.printAllMovies(amMovies);
+                    break;
+                //case 5:
+                  //  System.exit(0);             
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+}

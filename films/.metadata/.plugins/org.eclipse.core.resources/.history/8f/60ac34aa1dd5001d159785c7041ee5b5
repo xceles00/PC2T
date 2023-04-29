@@ -1,0 +1,69 @@
+package film_database;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+public class FilmManager {
+
+
+
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //private static List<AnimatedMovie> animatedMovies = new ArrayList<>();
+        //private static List<ActionMovie> actionMovies = new ArrayList<>();
+        //Movie Movie = null;
+        //AnimatedMovie AnimatedMovie = new AnimatedMovie();
+        
+
+        // User to interaction with the film database
+        while (true) {
+            System.out.println("What would you like to do?");
+            System.out.println("1. Add a film");
+            System.out.println("2. Remove a film");
+            System.out.println("3. Edit a film");
+            System.out.println("4. Print all films");
+            System.out.println("5. Quit");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                	System.out.println("What type of film would you like to add?");
+                    System.out.println("1. Animated film");
+                    System.out.println("2. Action film");
+
+                    int type = scanner.nextInt();
+                    scanner.nextLine();
+                    if(type == 1) {
+                    	AnimatedMovie.addMovie(scanner);
+                    }
+                    else if (type == 2) {
+                    	AnimatedMovie.addMovie(scanner);
+                    }
+                    else {
+                    	System.out.println("Invalid choice");
+                    }
+                    
+                    break;
+                //case 2:
+                  //  removeFilm(scanner);
+                    //break;
+                //case 3:
+                  //  editFilm(scanner);
+                    //break;
+                case 4:
+                    Movie.printAllMovies(null);
+                    break;
+                //case 5:
+                  //  System.exit(0);             
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+}

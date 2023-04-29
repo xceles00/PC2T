@@ -1,0 +1,6 @@
+1680731216078	Delete element
+1680731230618	Delete element
+1680731333063	Delete element
+1680794197015	Encapsulate field 'minimalAge'
+1680795309570	Encapsulate field 'animators'
+1680807646645	Convert local variable 'AnimatedMovie' to field

@@ -1,0 +1,42 @@
+package film_database;
+
+
+
+public class AnimatedMovie extends Movie {
+    private int rating;
+    private int recommendedAge;
+
+    public AnimatedMovie(String title, String director, int yearOfRelease, int rating, int recommendedAge) {
+        super(title, director, yearOfRelease);
+        this.rating = rating;
+        this.recommendedAge = recommendedAge;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public int getRecommendedAge() {
+        return recommendedAge;
+    }
+
+    public void setRecommendedAge(int recommendedAge) {
+        this.recommendedAge = recommendedAge;
+    }
+
+    /*@Override
+    public String toString() {
+        return "AnimatedMovie{" +
+                "title='" + getTitle() + '\'' +
+                ", director='" + getDirector() + '\'' +
+                ", yearOfRelease=" + getYearOfRelease() +
+                ", rating=" + rating +
+                ", recommendedAge=" + recommendedAge +
+                '}';
+    }*/
+}
+

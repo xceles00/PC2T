@@ -1,0 +1,54 @@
+package film_database;
+
+
+import java.util.ArrayList;
+
+public class ActionMovie {
+	
+		private String title;
+		private String director;
+		private int year;
+		private ArrayList<String> actors;
+
+		    public ActionMovie(String title, String director, int year, ArrayList<String> actors)
+		    {
+		        this.title = title;
+		        this.director = director;
+		        this.year = year;
+		        this.actors = actors;
+		    }
+
+		    // getters and setters
+
+		    public String getTitle() {
+		        return title;
+		    }
+
+		    public void setTitle(String title) {
+		        this.title = title;
+		    }
+
+		    public String getDirector() {
+		        return director;
+		    }
+
+		    public void setDirector(String director) {
+		        this.director = director;
+		    }
+
+		    public int getYear() {
+		        return year;
+		    }
+
+		    public void setYear(int year) {
+		        this.year = year;
+		    }
+
+		    public ArrayList<String> getActors() {
+		        return actors;
+		    }
+
+		    public void setActors(ArrayList<String> actors) {
+		        this.actors = actors;
+		    }
+}

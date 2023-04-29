@@ -1,0 +1,58 @@
+package film_database;
+
+import java.util.List;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class AnimatedMovie extends Movie {
+	
+	    private ArrayList<String> animators;
+	    private int minimalAge;
+	    private static List<Movie> movies = new ArrayList<>();
+
+	    public AnimatedMovie(String title, String director, int year, ArrayList<String> animators, int rating, int minimalAge)
+	    {
+	    	super (title, year, director, rating);
+	        this.animators = animators;
+	        this.minimalAge = minimalAge;
+	    }
+	    
+	    
+
+	    // getters and setters
+	   
+
+		public ArrayList<String> getAnimators() {
+			return animators;
+		}
+
+		public void setAnimators(ArrayList<String> animators) {
+			this.animators = animators;
+		}
+
+	    
+	    public int getMinimalAge() {
+			return minimalAge;
+		}
+
+		public void setMinimalAge(int minimalAge) {
+			this.minimalAge = minimalAge;
+		}
+	    
+	    
+	    
+		/*@Override
+	    void printMovie(List<AnimatedMovie> movie)
+	    {
+	    	for (AnimatedMovie movie : movies) {
+	    		System.out.println(movie.getTitle() + " (" + movie.getYear() + ") directed by " + movie.getDirector());
+	    	}
+	    }*/
+
+
+		
+	    	
+
+	  	
+}
+

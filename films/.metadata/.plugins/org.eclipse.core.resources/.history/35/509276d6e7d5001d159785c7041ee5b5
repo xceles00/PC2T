@@ -1,0 +1,27 @@
+package film_database;
+
+
+import java.util.ArrayList;
+
+public class ActionMovie extends Movie{
+	
+	
+			private ArrayList<String> actors;
+
+		    public ActionMovie(String title, String director, int year, ArrayList<String> actors, int rating)
+		    {
+		        super(title, year, director,rating);
+		        this.actors = actors;
+		    }
+
+		    // getters and setter
+		    
+
+		    public ArrayList<String> getActors() {
+		        return actors;
+		    }
+
+		    public void setActors(ArrayList<String> actors) {
+		        this.actors = actors;
+		    }
+}

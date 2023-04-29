@@ -1,0 +1,67 @@
+package film_database;
+
+import java.util.List;
+import java.util.Scanner;
+
+public abstract class Movie {
+	
+	String title;
+	int year;
+	String director;
+	int rating;
+	Scanner sc = new Scanner(System.in);
+	
+
+
+public Movie(String title, int year, String director, int rating) {
+	
+	this.title = title;
+	this.year = year;
+	this.director = director;
+	this.rating = rating;
+	
+	
+}
+public void setTitle(String title) {
+	this.title = title;
+}
+public void setYear(int year){
+	this.year = year;
+}
+public void setDirector(String director) {
+	this.director = director;
+}
+public void setRating(int rating) {
+	this.rating = rating;
+}
+public String getTitle() {
+	return title;
+}
+public int getYear() {
+	return year;
+}
+public String getDirector() {
+	return director;
+}
+public int getRating() {
+	return rating;
+}
+
+//abstract void addMovie(Scanner scanner);
+//abstract void editMovie();
+//abstract void printMovie();
+
+public void printAllMovies() {
+	
+        
+}
+
+public static void deleteMovie(List<Movie> movies) {
+	System.out.println("type name of movie you want to delete: ");
+	Scanner sc = new Scanner(System.in);
+	String movieName = sc.nextLine();
+	movies.remove(movieName);
+}
+	
+}
+

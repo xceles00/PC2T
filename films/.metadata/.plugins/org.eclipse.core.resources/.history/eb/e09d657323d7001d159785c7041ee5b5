@@ -1,0 +1,58 @@
+package film_database;
+
+import java.util.List;
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		FilmManager manager = new FilmManager();
+	    Scanner input = new Scanner(System.in);
+	    while (true) {
+	        System.out.println("\nMovie Management System");
+	        System.out.println("1. Add new movie");
+	        System.out.println("2. Edit movie");
+	        System.out.println("3. Remove movie");
+	        System.out.println("4. Print all movies");
+	        System.out.println("5. Search movie by title");
+	        System.out.println("6. Exit");
+	        System.out.print("Enter your choice (1-6): ");
+	        int choice = input.nextInt();
+	        input.nextLine();
+	        switch (choice) {
+	            case 1:
+	                manager.addMovie();
+	                break;
+	            case 2:
+	                //manager.editMovie();
+	                break;
+	            case 3:
+	                //manager.removeMovie();
+	                break;
+	            case 4:
+				manager.printMovies();
+	                break;
+	           /* case 5:
+	                System.out.print("Enter the title of the movie to search: ");
+	                String title = input.nextLine();
+	                Movie movie = manager.searchMovie(title);
+	                if (movie == null) {
+	                    System.out.println("Movie not found.");
+	                } else {
+	                    System.out.println(movie);
+	                }
+	                break;*/
+	            case 6:
+	                System.exit(0);
+	            default:
+	                System.out.println("Invalid choice.");
+	        }
+	    }
+		
+
+	}
+
+}

@@ -1,0 +1,106 @@
+package film_database;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+public class FilmManager {
+
+    private static List<AnimatedMovie> animatedMovies = new ArrayList<>();
+    private static List<ActionMovie> actionMovies = new ArrayList<>();
+
+    public void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Print out the list of films
+
+        // User to interaction with the film database
+        while (true) {
+            System.out.println("What would you like to do?");
+            System.out.println("1. Add a film");
+            System.out.println("2. Remove a film");
+            System.out.println("3. Edit a film");
+            System.out.println("4. Print all films");
+            System.out.println("5. Quit");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                    addFilm(scanner);
+                    break;
+                //case 2:
+                  //  removeFilm(scanner);
+                    //break;
+                //case 3:
+                  //  editFilm(scanner);
+                    //break;
+                case 4:
+                    printMovies(scanner);
+                    break;
+                //case 5:
+                  //  System.exit(0);             
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+
+    public void addFilm(Scanner scanner) {
+        System.out.println("What type of film would you like to add?");
+        System.out.println("1. Animated film");
+        System.out.println("2. Action film");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        switch (choice) {
+            case 1:
+                addAnimatedMovie(scanner);
+                break;
+            case 2:
+                addActionMovie(scanner);
+                break;
+            default:
+                System.out.println("Invalid choice. Try again.");
+        }
+    }
+
+    
+
+    public void addActionMovie(Scanner scanner) {
+        System.out.println("Enter the title of the film:");
+        String title = scanner.nextLine();
+
+        System.out.println("Enter the director of the film:");
+        String director = scanner.nextLine();
+
+        System.out.println("Enter the year of release of the film:");
+        int year = scanner.nextInt();
+        
+        /*System.out.println("Enter the rating of the film (out of 10):");
+        double rating = scanner.nextDouble(); */
+
+        scanner.nextLine(); // Consume the newline character
+
+        System.out.println("Enter actors of the film:");
+        ArrayList <String> actors = new ArrayList<>();
+        String actor;
+        do {
+            System.out.println("Enter an actor name (or 'done' to finish): ");
+            actor = scanner.nextLine();
+            if (!actor.equals("done")) {
+                actors.add(actor);
+            }
+        } while (!actor.equals("done"));
+        
+        ActionMovie ActionMovie = new ActionMovie(title, director, year, actors);
+        actionMovies.add(ActionMovie);
+        
+    }
+    
+    }
