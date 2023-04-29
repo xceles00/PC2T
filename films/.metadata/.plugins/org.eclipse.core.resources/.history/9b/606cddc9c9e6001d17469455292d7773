@@ -56,11 +56,11 @@ public class FilmManager {
                     movies.add(new AnimatedMovie(title, director, yearOfRelease, animators, rating, recommendedAge));
                     System.out.println("\nMovie added.");
                     validInput = true;
-                }
+                    }
                 else if (type == 2) {
                     ArrayList<String> actors = new ArrayList<String>();
                     while (true) {
-                        System.out.print("Actors (enter to finish): ");
+                        System.out.print("Actor (enter to finish): ");
                         String actor = input.nextLine();
                         if (actor.isEmpty()) {
                             break;
@@ -73,11 +73,11 @@ public class FilmManager {
                     movies.add(new ActionMovie(title, director, yearOfRelease, actors, rating));
                     System.out.println("\nMovie added.");
                     validInput = true;
-                }
+                    }
                 else {
                     System.out.println("Invalid type");
+                    }
                 }
-            }
         	catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid value.");
                 input.nextLine();
@@ -94,7 +94,6 @@ public class FilmManager {
     	        System.out.println("Year of Release: " + movie.getYearOfRelease());
     	        if (movie instanceof AnimatedMovie) {
     	            AnimatedMovie animatedMovie = (AnimatedMovie) movie;
-    	            System.out.println("Animators: " + animatedMovie.getAnimators());
     	            System.out.println("Rating (from 1 to 10): " + animatedMovie.getRating());
     	            System.out.println("Recommended Age: " + animatedMovie.getRecommendedAge());
     	        } else if (movie instanceof ActionMovie) {
@@ -128,16 +127,6 @@ public class FilmManager {
                     movie.setYearOfRelease(year);
                     if (movie instanceof AnimatedMovie) {
                         AnimatedMovie animatedMovie = (AnimatedMovie) movie;
-                        ArrayList<String> animators = new ArrayList<String>();
-                        while (true) {
-                            System.out.print("Animators (enter to finish): ");
-                            String animator = input.nextLine();
-                            if (animator.isEmpty()) {
-                                break;
-                            }
-                            animators.add(animator);
-                        }
-                        animatedMovie.setAnimators(animators);
                         System.out.print("Rating from (1 to 10): ");
                         int rating = input.nextInt();
                         input.nextLine();
@@ -207,7 +196,7 @@ public class FilmManager {
     		if (movie.getTitle().equalsIgnoreCase(title)) {
     			if (movie instanceof AnimatedMovie) {
     				AnimatedMovie animatedMovie = (AnimatedMovie) movie;
-            		System.out.println(animatedMovie.getTitle() + " (" + animatedMovie.getYearOfRelease() + ") " + "directed by " + animatedMovie.getDirector() + ", rating (from 1 to 10): " + animatedMovie.getRating() + ", recommended age: " + animatedMovie.getRecommendedAge() + ", animators: " + animatedMovie.getAnimators());
+            		System.out.println(animatedMovie.getTitle() + " (" + animatedMovie.getYearOfRelease() + ") " + "directed by " + animatedMovie.getDirector() + ", rating (from 1 to 10): " + animatedMovie.getRating() + ", recommended age: " + animatedMovie.getRecommendedAge() );
             		}
     			else if(movie instanceof ActionMovie) {
             		 ActionMovie actionMovie = (ActionMovie) movie;
@@ -235,7 +224,7 @@ public class FilmManager {
     					writer.write("Title: " + animatedMovie.getTitle() + "\n");
     					writer.write("Director: " + animatedMovie.getDirector() + "\n");
     					writer.write("Release year: " + animatedMovie.getYearOfRelease() + "\n");
-    					writer.write("Animators: " + animatedMovie.getAnimators() + "\n");
+    					//writer.write("Animators: " + animatedMovie.getAnimator() + "\n");
     					writer.write("Recommended age: " + animatedMovie.getRecommendedAge() + "\n");
     					writer.write("Rating (from 1 to 10): " + animatedMovie.getRating());
     					writer.close();

@@ -60,7 +60,7 @@ public class FilmManager {
                 else if (type == 2) {
                     ArrayList<String> actors = new ArrayList<String>();
                     while (true) {
-                        System.out.print("Actors (enter to finish): ");
+                        System.out.print("Actor (enter to finish): ");
                         String actor = input.nextLine();
                         if (actor.isEmpty()) {
                             break;
@@ -128,16 +128,6 @@ public class FilmManager {
                     movie.setYearOfRelease(year);
                     if (movie instanceof AnimatedMovie) {
                         AnimatedMovie animatedMovie = (AnimatedMovie) movie;
-                        ArrayList<String> animators = new ArrayList<String>();
-                        while (true) {
-                            System.out.print("Animators (enter to finish): ");
-                            String animator = input.nextLine();
-                            if (animator.isEmpty()) {
-                                break;
-                            }
-                            animators.add(animator);
-                        }
-                        animatedMovie.setAnimators(animators);
                         System.out.print("Rating from (1 to 10): ");
                         int rating = input.nextInt();
                         input.nextLine();

@@ -30,4 +30,14 @@ public class ActionMovie extends Movie {
         this.rating = rating;
     }
 
+    /*@Override
+    public String toString() {
+        return "ActionMovie{" +
+                "title='" + getTitle() + '\'' +
+                ", director='" + getDirector() + '\'' +
+                ", yearOfRelease=" + getYearOfRelease() +
+                ", actors=" + actors +
+                ", rating=" + rating +
+                '}';
+    }*/
 }

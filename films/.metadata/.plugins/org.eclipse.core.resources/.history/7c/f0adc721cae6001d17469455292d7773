@@ -60,7 +60,7 @@ public class FilmManager {
                 else if (type == 2) {
                     ArrayList<String> actors = new ArrayList<String>();
                     while (true) {
-                        System.out.print("Actors (enter to finish): ");
+                        System.out.print("Actor (enter to finish): ");
                         String actor = input.nextLine();
                         if (actor.isEmpty()) {
                             break;
@@ -128,16 +128,6 @@ public class FilmManager {
                     movie.setYearOfRelease(year);
                     if (movie instanceof AnimatedMovie) {
                         AnimatedMovie animatedMovie = (AnimatedMovie) movie;
-                        ArrayList<String> animators = new ArrayList<String>();
-                        while (true) {
-                            System.out.print("Animators (enter to finish): ");
-                            String animator = input.nextLine();
-                            if (animator.isEmpty()) {
-                                break;
-                            }
-                            animators.add(animator);
-                        }
-                        animatedMovie.setAnimators(animators);
                         System.out.print("Rating from (1 to 10): ");
                         int rating = input.nextInt();
                         input.nextLine();
@@ -207,7 +197,7 @@ public class FilmManager {
     		if (movie.getTitle().equalsIgnoreCase(title)) {
     			if (movie instanceof AnimatedMovie) {
     				AnimatedMovie animatedMovie = (AnimatedMovie) movie;
-            		System.out.println(animatedMovie.getTitle() + " (" + animatedMovie.getYearOfRelease() + ") " + "directed by " + animatedMovie.getDirector() + ", rating (from 1 to 10): " + animatedMovie.getRating() + ", recommended age: " + animatedMovie.getRecommendedAge() + ", animators: " + animatedMovie.getAnimators());
+            		System.out.println(animatedMovie.getTitle() + " (" + animatedMovie.getYearOfRelease() + ") " + "directed by " + animatedMovie.getDirector() + ", rating (from 1 to 10): " + animatedMovie.getRating() + ", recommended age: " + animatedMovie.getRecommendedAge() );
             		}
     			else if(movie instanceof ActionMovie) {
             		 ActionMovie actionMovie = (ActionMovie) movie;
@@ -235,7 +225,7 @@ public class FilmManager {
     					writer.write("Title: " + animatedMovie.getTitle() + "\n");
     					writer.write("Director: " + animatedMovie.getDirector() + "\n");
     					writer.write("Release year: " + animatedMovie.getYearOfRelease() + "\n");
-    					writer.write("Animators: " + animatedMovie.getAnimators() + "\n");
+    					//writer.write("Animators: " + animatedMovie.getAnimator() + "\n");
     					writer.write("Recommended age: " + animatedMovie.getRecommendedAge() + "\n");
     					writer.write("Rating (from 1 to 10): " + animatedMovie.getRating());
     					writer.close();
