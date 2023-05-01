@@ -261,9 +261,7 @@ public class FilmManager {
     }
     
     public void searchMoviesByActor() {
-    	System.out.print("Enter the name: ");
-    	String Name = input.nextLine();
-    	System.out.println();
+    	String Name = null;
         List<Movie> result = new ArrayList<>();
         for (Movie movie : movies) {
             if (movie instanceof AnimatedMovie) {
@@ -281,7 +279,7 @@ public class FilmManager {
         if (result.isEmpty()) {
             System.out.println("No movies found for actor: " + Name);
         } else {
-            System.out.println("Movies found: " + Name);
+            System.out.println("Movies found for actor: " + Name);
             for (Movie movie : result) {
                 System.out.println(movie.getTitle() + " (" + movie.getYearOfRelease() + ")");
             }

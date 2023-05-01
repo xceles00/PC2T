@@ -36,4 +36,12 @@ public class Movie {
         this.yearOfRelease = yearOfRelease;
     }
 
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", director='" + director + '\'' +
+                ", yearOfRelease=" + yearOfRelease +
+                '}';
+    }
 }

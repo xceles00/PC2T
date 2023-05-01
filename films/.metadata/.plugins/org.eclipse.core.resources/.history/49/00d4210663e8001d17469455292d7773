@@ -5,20 +5,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class FilmManager {
     
+    // List of movies
     private ArrayList<Movie> movies;
     
+    // Scanner for user input
     private Scanner input;
     
+    // Constructor
     public FilmManager() {
         movies = new ArrayList<Movie>();
         input = new Scanner(System.in);
     }
     
+    // Add new movie to the list
     public void addMovie() {
         boolean validInput = false;
         while (!validInput) {
@@ -103,6 +106,7 @@ public class FilmManager {
     	    }
     }
     
+    // Edit an existing movie
     public void editMovie() {
         try {
             System.out.print("Enter the title of the movie to edit: ");
@@ -174,6 +178,7 @@ public class FilmManager {
         }
     }
     
+    // Remove a movie from the list
     public void removeMovie() {
     	    System.out.print("Enter the title of the movie to remove: ");
     	    String title = input.nextLine();
@@ -192,6 +197,7 @@ public class FilmManager {
     	    input.nextLine(); 
     	}
     	
+    // Search movie by title
     public void searchMovie() {
     	System.out.print("Enter the title of the movie to search: ");
     	String title = input.nextLine();
@@ -258,33 +264,5 @@ public class FilmManager {
 	            System.out.println("Movie " + title + " not found.");
 			}
     	}
-    }
-    
-    public void searchMoviesByActor() {
-    	System.out.print("Enter the name: ");
-    	String Name = input.nextLine();
-    	System.out.println();
-        List<Movie> result = new ArrayList<>();
-        for (Movie movie : movies) {
-            if (movie instanceof AnimatedMovie) {
-                AnimatedMovie animatedMovie = (AnimatedMovie) movie;
-                if (animatedMovie.getAnimators().contains(Name)) {
-                    result.add(animatedMovie);
-                }
-            } else if (movie instanceof ActionMovie) {
-                ActionMovie actionMovie = (ActionMovie) movie;
-                if (actionMovie.getActors().contains(Name)) {
-                    result.add(actionMovie);
-                }
-            }
-        }
-        if (result.isEmpty()) {
-            System.out.println("No movies found for actor: " + Name);
-        } else {
-            System.out.println("Movies found: " + Name);
-            for (Movie movie : result) {
-                System.out.println(movie.getTitle() + " (" + movie.getYearOfRelease() + ")");
-            }
-        }
     }
 }

@@ -51,7 +51,7 @@ public class App {
 	                    System.out.println();
 	                    break;
 	                case 8:
-	                	System.out.println("Program exited.");
+	                	System.out.println("...");
 	                	break;
 	                default:
 	                    System.out.println("Invalid choice. Please enter a valid choice.");
